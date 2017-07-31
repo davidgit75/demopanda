@@ -35,6 +35,10 @@ game
           this.sprite.alpha = alpha;
         }
 
+        this.setScale = function(x, y) {
+          this.sprite.scale.set(x, y);
+        }
+
         this.onDragStart = function(event) {
           this.sprite.anchor.set(0.5);
           this.data = event;

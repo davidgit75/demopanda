@@ -34,17 +34,17 @@ game
             lowLoud: new game.Tween(this.boxes.lowLoud.sprite.position),
             lowSoft: new game.Tween(this.boxes.lowSoft.sprite.position),
           };
-          tweensBoxesPosition.high.to({ x: -30, y: 0 }, 1000);
+          tweensBoxesPosition.high.to({ x: -200, y: 0 }, 1000);
           tweensBoxesPosition.high.interpolation(game.Tween.Interpolation.Bezier);
-          tweensBoxesPosition.low.to({ x: -30, y: 0 }, 1000);
+          tweensBoxesPosition.low.to({ x: -200, y: 0 }, 1000);
           tweensBoxesPosition.low.interpolation(game.Tween.Interpolation.Bezier);
-          tweensBoxesPosition.highLoud.to({ x: -200, y: 0 }, 1000);
+          tweensBoxesPosition.highLoud.to({ x: -350, y: 0 }, 1000);
           tweensBoxesPosition.highLoud.interpolation(game.Tween.Interpolation.Bezier);
-          tweensBoxesPosition.highSoft.to({ x: -200, y: 0 }, 1000);
+          tweensBoxesPosition.highSoft.to({ x: -350, y: 0 }, 1000);
           tweensBoxesPosition.highSoft.interpolation(game.Tween.Interpolation.Bezier);
-          tweensBoxesPosition.lowLoud.to({ x: -200, y: 0 }, 1000);
+          tweensBoxesPosition.lowLoud.to({ x: -350, y: 0 }, 1000);
           tweensBoxesPosition.lowLoud.interpolation(game.Tween.Interpolation.Bezier);
-          tweensBoxesPosition.lowSoft.to({ x: -200, y: 0 }, 1000);
+          tweensBoxesPosition.lowSoft.to({ x: -350, y: 0 }, 1000);
           tweensBoxesPosition.lowSoft.interpolation(game.Tween.Interpolation.Bezier);
 
           this.boxes.high.sprite.visible = false;
@@ -65,23 +65,23 @@ game
             lowLoud: new game.Tween(this.boxes.lowLoud.label.position),
             lowSoft: new game.Tween(this.boxes.lowSoft.label.position),
           };
-          tweenLabelsPosition.high.to({ x: this.boxes.high.label.x - 50, y: this.boxes.high.label.y - 100 }, 1000);
+          tweenLabelsPosition.high.to({ x: this.boxes.high.label.x - 200, y: this.boxes.high.label.y - 100 }, 1000);
           tweenLabelsPosition.high.interpolation(game.Tween.Interpolation.Bezier);
-          tweenLabelsPosition.low.to({ x: this.boxes.low.label.x - 50, y: this.boxes.low.label.y - 70 }, 1000);
+          tweenLabelsPosition.low.to({ x: this.boxes.low.label.x - 200, y: this.boxes.low.label.y - 70 }, 1000);
           tweenLabelsPosition.low.interpolation(game.Tween.Interpolation.Bezier);
-          tweenLabelsPosition.highLoud.to({ x: this.boxes.highLoud.label.x - 200, y: this.boxes.highLoud.label.y }, 1000);
+          tweenLabelsPosition.highLoud.to({ x: this.boxes.highLoud.label.x - 350, y: this.boxes.highLoud.label.y }, 1000);
           tweenLabelsPosition.highLoud.interpolation(game.Tween.Interpolation.Bezier);
-          tweenLabelsPosition.highSoft.to({ x: this.boxes.highSoft.label.x - 200, y: this.boxes.highSoft.label.y }, 1000);
+          tweenLabelsPosition.highSoft.to({ x: this.boxes.highSoft.label.x - 350, y: this.boxes.highSoft.label.y }, 1000);
           tweenLabelsPosition.highSoft.interpolation(game.Tween.Interpolation.Bezier);
-          tweenLabelsPosition.lowLoud.to({ x: this.boxes.lowLoud.label.x - 200, y: this.boxes.lowLoud.label.y }, 1000);
+          tweenLabelsPosition.lowLoud.to({ x: this.boxes.lowLoud.label.x - 350, y: this.boxes.lowLoud.label.y }, 1000);
           tweenLabelsPosition.lowLoud.interpolation(game.Tween.Interpolation.Bezier);
-          tweenLabelsPosition.lowSoft.to({ x: this.boxes.lowSoft.label.x - 200, y: this.boxes.lowSoft.label.y }, 1000);
+          tweenLabelsPosition.lowSoft.to({ x: this.boxes.lowSoft.label.x - 350, y: this.boxes.lowSoft.label.y }, 1000);
           tweenLabelsPosition.lowSoft.interpolation(game.Tween.Interpolation.Bezier);
 
           var tweenImagesPosition = []
           this.images.map((image, index) => {
             tweenImagesPosition.push(new game.Tween(image.sprite.position));
-            tweenImagesPosition[index].to({ x: image.sprite.position.x - 200, y: image.sprite.position.y }, 1000);
+            tweenImagesPosition[index].to({ x: image.sprite.position.x - 350, y: image.sprite.position.y }, 1000);
             tweenImagesPosition[index].interpolation(game.Tween.Interpolation.Bezier);
             tweenImagesPosition[index].start();
           });

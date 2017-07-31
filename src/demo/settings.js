@@ -1,12 +1,10 @@
+// window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio
 game.config = {
   name: 'Panda&Linden',
-  sourceFolder: 'src',
-  mediaFolder: 'assets',
+  sourceFolder: './',
+  mediaFolder: '../../assets',
   system: {
-    width: window.innerWidth,
-    height: window.innerHeight,
-    scale: true,
-    center: true,
+    webGL: true
   },
   settings: {
     "name": "6051-T4L",
@@ -29,7 +27,25 @@ game.config = {
         "image": {
           "src": "Images/frogAnimation.png"
         }
-      }
+      },
+      {
+        "name": "buttonDone",
+        "image": {
+          "src": "Images/done.png"
+        }
+      },
+      {
+        "name": "buttonDoneH",
+        "image": {
+          "src": "Images/doneh.png"
+        }
+      },
+      {
+        "name": "buttonFull",
+        "image": {
+          "src": "Images/full.png"
+        }
+      },
     ],
     "scenes": [
       {
@@ -90,7 +106,7 @@ game.config = {
           "show": false
         },
         position: {
-          x: 600,
+          x: 700,
           y: 200
         },
         size: {
@@ -110,7 +126,7 @@ game.config = {
           "color": "3B5998"
         },
         position: {
-          x: 500,
+          x: 600,
           y: 200
         },
         size: {
@@ -130,7 +146,7 @@ game.config = {
           "color": "3B5998"
         },
         position: {
-          x: 500,
+          x: 600,
           y: 440
         },
         size: {
@@ -150,7 +166,7 @@ game.config = {
           "color": "3B5998"
         },
         position: {
-          x: 500,
+          x: 600,
           y: 190
         },
         size: {
@@ -170,7 +186,7 @@ game.config = {
           "color": "3B5998"
         },
         position: {
-          x: 500,
+          x: 600,
           y: 310
         },
         size: {
@@ -190,7 +206,7 @@ game.config = {
           "color": "3B5998"
         },
         position: {
-          x: 500,
+          x: 600,
           y: 445
         },
         size: {
@@ -210,7 +226,7 @@ game.config = {
           "color": "3B5998"
         },
         position: {
-          x: 500,
+          x: 600,
           y: 565
         },
         size: {

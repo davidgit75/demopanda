@@ -20,8 +20,7 @@ game
         this.printLabel = () => {
           if (this.config.label.show) {
             var textStyle = {
-              fontFamily: 'Arial',
-              fontSize: 14,
+              font: 'bold 18px Arial',
               fill: '#2B80FF',
               align: 'center',
             };
@@ -29,7 +28,7 @@ game
             this.label = new game.Text(this.config.label.text, textStyle);
             this.label.position.set(
               bounds.x + (bounds.width / 2),
-              (bounds.y + bounds.height) - 20,
+              (bounds.y + bounds.height) - 15,
             );
             this.label.anchor.set(0.5);
             this.label.visible = true;
@@ -37,16 +36,12 @@ game
 
             this.labelStyles = {
               normal: {
-                fontFamily: 'Arial',
-                fontSize: 14,
+                font: 'bold 18px Arial',
                 fill: '#2B80FF',
                 align: 'center',
-                fontWeight: 'bold',
               },
               focused: {
-                fontFamily: 'Arial',
-                fontSize: 22,
-                fontWeight: 'bold',
+                font: 'bold 18px Arial',
                 fill: '#2B80FF',
                 stroke: '#4a1850',
                 strokeThickness: 2,

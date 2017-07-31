@@ -35,9 +35,9 @@ game
           high: new game.Tween(this.boxes.high.label.position),
           low: new game.Tween(this.boxes.low.label.position),
         };
-        tweensLabelsPosition.high.to({ x: 300, y: 390 }, 1000);
+        tweensLabelsPosition.high.to({ x: 400, y: 390 }, 1000);
         tweensLabelsPosition.high.interpolation(game.Tween.Interpolation.Bezier);
-        tweensLabelsPosition.low.to({ x: 300, y: 620 }, 1000);
+        tweensLabelsPosition.low.to({ x: 400, y: 630 }, 1000);
         tweensLabelsPosition.low.interpolation(game.Tween.Interpolation.Bezier);
 
         var tweenImagesPosition = []
