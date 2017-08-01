@@ -2,10 +2,10 @@ game
   .module('game.step3')
   .body(function(){
     Step3 = game.createClass('Step3', {
-      init: function(images, boxes) {
-        console.log('step3 started');
+      init: function(images, boxes, signals) {
         this.images = images;
         this.boxes = boxes;
+        this.signals = signals;
         this.config = game.config.settings.scenes.filter(set => set.name === 'step3')[0];
         this.sounds = {
           intro1: new Howl({
@@ -106,8 +106,38 @@ game
 
         // In the second 22 on intro 3
         setTimeout(() => {
-          // this.boxes.question1 = new Box(game.config.settings.groupContainer.filter(set => set.name === 'highImagesContainer')[0]);
+          this.boxes.questionHL = new Box(game.config.settings.groupContainer.filter(set => set.name === 'questionHL')[0]);
+          this.boxes.questionHS = new Box(game.config.settings.groupContainer.filter(set => set.name === 'questionHS')[0]);
+          this.boxes.questionLL = new Box(game.config.settings.groupContainer.filter(set => set.name === 'questionLL')[0]);
+          this.boxes.questionLS = new Box(game.config.settings.groupContainer.filter(set => set.name === 'questionLS')[0]);
+          this.boxes.questionHL.setVisible(true);
+          this.boxes.questionHS.setVisible(true);
+          this.boxes.questionLL.setVisible(true);
+          this.boxes.questionLS.setVisible(true);
+          this.boxes.signalHL = new Box(game.config.settings.groupContainer.filter(set => set.name === 'signalHL')[0]);
+          this.boxes.signalHS = new Box(game.config.settings.groupContainer.filter(set => set.name === 'signalHS')[0]);
+          this.boxes.signalLL = new Box(game.config.settings.groupContainer.filter(set => set.name === 'signalLL')[0]);
+          this.boxes.signalLS = new Box(game.config.settings.groupContainer.filter(set => set.name === 'signalLS')[0]);
         }, 39000);
+
+        setTimeout(() => {
+            this.boxes.signalHL.setVisible(true);
+            this.boxes.signalHS.setVisible(true);
+            this.boxes.signalLL.setVisible(true);
+            this.boxes.signalLS.setVisible(true);
+            this.signals.map((signal, i) => {
+              this.signals[i].add();
+              this.signals[i].setCorrectAudio(signal.config.settings.tmpAudios[0]);
+              this.signals[i].setErrorAudio(signal.config.settings.tmpAudios[1]);
+              this.signals[i].setVisible(true);
+              this.signals[i].setInteractive(true);
+              this.signals[i].setAlpha(1);
+              if (i===0) signal.setCorners(this.boxes.signalHL, this.boxes.questionHL);
+              if (i===1) signal.setCorners(this.boxes.signalHS, this.boxes.questionHS);
+              if (i===2) signal.setCorners(this.boxes.signalLL, this.boxes.questionLL);
+              if (i===3) signal.setCorners(this.boxes.signalLS, this.boxes.questionLS);
+            });
+          }, 39500);
       },
       playSound: function(sound) {
         this.sounds[sound].play();

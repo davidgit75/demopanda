@@ -47,8 +47,21 @@ game
 				{
 					anchor: 0.5,
 					scale: { x: 0.2, y: 0.2 },
-					position: { x: 0.9 * window.innerWidth, y: 0.2 * window.innerHeight },
+					position: { x: 1.05 * window.innerWidth, y: 0.15 * window.innerHeight },
 					action: () => fullScreen()
+				}
+			);
+
+			this.buttonHelp = new Button(
+				game.config.settings.components.filter(set => set.name === 'buttonHelp')[0],
+				{
+					anchor: 0.5,
+					scale: { x: 1, y: 1 },
+					position: { x: 1.05 * window.innerWidth, y: 1.05 * window.innerHeight },
+					action: () => {
+						const audioHelp = new Howl({ src: [getPrefix() + '/Audios/correct.mp3']});
+						audioHelp.play();
+					}
 				}
 			);
 			
@@ -62,13 +75,19 @@ game
 						image.setScale(0.8, 0.8);
 					});
 				} else if (this.correctMovements == 16) {
-					this.step3 = new Step3(this.images, this.boxes);
+					this.step3 = new Step3(this.images, this.boxes, this.signals);
+				} else if (this.correctMovements == 20) {
+					const congrats = new Howl({ src: [this.prefix + '/Audios/congrats.mp3']});
+					setTimeout(() => {
+						congrats.play();
+					}, 3000);
 				}
 			}
 
 			setTimeout(() => {
 				this.board.setVisible(true);
 				this.buttonFullSize.setVisible(true);
+				this.buttonHelp.setVisible(true);
 			}, 1000);
 
 			setTimeout(() => {
@@ -80,6 +99,7 @@ game
 				this.boxes = {
 					main: new Box(game.config.settings.groupContainer.filter(set => set.name === 'originImages')[0]),
 				};
+
 				this.boxes.main.sprite.visible = true;
 				this.images = [
 					new InteractiveImage({ settings: game.config.settings.images.filter(set => set.name === 'image1_high')[0], position: { x: 370, y: 250 } }, () => this.increaseMovements()),
@@ -91,6 +111,7 @@ game
 					new InteractiveImage({ settings: game.config.settings.images.filter(set => set.name === 'image3_low')[0], position: { x: 370, y: 600 } }, () => this.increaseMovements()),
 					new InteractiveImage({ settings: game.config.settings.images.filter(set => set.name === 'image4_low')[0], position: { x: 480, y: 600 } }, () => this.increaseMovements()),
 				];
+				this.images.map(image => image.add());
 
 				var tweenMoveMainBox = new game.Tween(this.boxes.main.sprite.position);
 				tweenMoveMainBox.to({ x: -400, y: 0 }, 1000);
@@ -127,12 +148,22 @@ game
 			setTimeout(() => {
 				this.frog = new Frog(() => this.addFrogAndShowBoxes());
 			}, 7000);
-		},
+
+			setTimeout(() => {
+				this.signals = [
+					new InteractiveImage({ settings: game.config.settings.images.filter(set => set.name === 'waves1')[0], position: { x: 700 + 55, y: 190 + 55 } }, () => this.increaseMovements()),
+					new InteractiveImage({ settings: game.config.settings.images.filter(set => set.name === 'waves2')[0], position: { x: 700 + 55, y: 310 + 55 } }, () => this.increaseMovements()),
+					new InteractiveImage({ settings: game.config.settings.images.filter(set => set.name === 'waves3')[0], position: { x: 700 + 55, y: 440 + 55 } }, () => this.increaseMovements()),
+					new InteractiveImage({ settings: game.config.settings.images.filter(set => set.name === 'waves4')[0], position: { x: 700 + 55, y: 560 + 55 } }, () => this.increaseMovements()),
+				];
+			}, 7500);
+		}
 	});
 
 	// game.System.pauseOnHide = true;
 	// game.System.rotateScreen = true;
 	game.System.orientation = game.System.LANDSCAPE;
+	game.System.transparent = true;
 	// game.System.rotateMsg = 'Rotate the device please';
 	// game.System.rotateImg = 'Images/logo.png';
 

@@ -17,6 +17,10 @@ game
           return this.sprite.getBounds();
         }
 
+        this.setVisible= (visible) => {
+          this.sprite.visible = visible;
+        }
+
         this.printLabel = () => {
           if (this.config.label.show) {
             var textStyle = {
@@ -32,7 +36,7 @@ game
             );
             this.label.anchor.set(0.5);
             this.label.visible = true;
-            this.label.addTo(game.scene.stage);
+            game.scene.stage.addChildAt(this.label, 5);
 
             this.labelStyles = {
               normal: {

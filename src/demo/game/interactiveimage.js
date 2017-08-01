@@ -18,8 +18,16 @@ game
         this.sprite.cursor = 'pointer';
         this.sprite.position.set(this.config.position.x, this.config.position.y);
         this.sprite.anchor.set(0.5, 0.5);
-        this.sprite.scale.set(0.8, 0.8);
+        if (
+          this.config.settings.name === 'waves1' || this.config.settings.name === 'waves2' ||
+          this.config.settings.name === 'waves3' || this.config.settings.name === 'waves4'
+        ) {
+          this.sprite.scale.set(0.15, 0.15);
+        } else {
+          this.sprite.scale.set(0.8, 0.8);
+        }
         this.sprite.interactive = false;
+        // game.scene.stage.addChild(this.sprite);
 
         this.audios = {
           yes: new Howl({ src: [this.prefix + '/Audios/yes.mp3']}),
@@ -27,32 +35,45 @@ game
           error: new Howl({ src: [this.prefix + '/Audios/error.mp3']}),
           correct: new Howl({ src: [this.prefix + '/Audios/correct.mp3']}),
           congrats: new Howl({ src: [this.prefix + '/Audios/congrats.mp3']}),
-          sound: new Howl({ src: [this.prefix + '/' + this.audio]}),
           yes: new Howl({ src: [this.prefix + '/Audios/yes.mp3']})
         };
 
-        this.setAlpha = function(alpha) {
+        if (this.audio) this.audios.sound = new Howl({ src: [this.prefix + '/' + this.audio]});
+
+        this.setAlpha = (alpha) => {
           this.sprite.alpha = alpha;
         }
 
-        this.setScale = function(x, y) {
+        this.setVisible = (visible) => {
+          this.sprite.visible = visible;
+        }
+
+        this.setErrorAudio = (newAudio) => {
+          this.audios.error = new Howl({ src: [this.prefix + '/' + newAudio]});
+        }
+
+        this.setCorrectAudio = (newAudio) => {
+          this.audios.correct = new Howl({ src: [this.prefix + '/' + newAudio]});
+        }
+
+        this.setScale = (x, y) => {
           this.sprite.scale.set(x, y);
         }
 
-        this.onDragStart = function(event) {
+        this.onDragStart = (event) => {
           this.sprite.anchor.set(0.5);
           this.data = event;
           this.dragging = true;
         }
 
-        this.onDragEnd = function() {
+        this.onDragEnd = () => {
           this.dragging = false;
           this.data = null;
-          this.audios.sound.stop();
+          if (this.audio) this.audios.sound.stop();
           this.isInsideTarget();
         }
 
-        this.onDragMove = function() {
+        this.onDragMove = () => {
           if (this.dragging) {
             var newPosition = this.data.global;
             this.sprite.position.set(newPosition.x, newPosition.y);
@@ -61,7 +82,9 @@ game
         
 
         // Events tap (mobile devices)
-        this.sprite.tap = () => this.audios.sound.play();
+        this.sprite.tap = () => {
+          if (this.audio) this.audios.sound.play();
+        }
         this.sprite.touchstart = event => this.onDragStart(event);
         this.sprite.touchend = (event) => this.onDragEnd(event);
         this.sprite.touchendoutside = event =>  this.onDragEnd(event);
@@ -72,8 +95,12 @@ game
         this.sprite.mouseup = () => this.onDragEnd();
         this.sprite.mouseupoutside = event =>  this.onDragEnd(event);
         this.sprite.mousemove = () => this.onDragMove();
-        this.sprite.mouseover = () => this.audios.sound.play();
-        this.sprite.mouseout = () => this.audios.sound.stop();
+        this.sprite.mouseover = () => {
+          if (this.audios.sound) this.audios.sound.play()
+        };
+        this.sprite.mouseout = () => {
+          if (this.audios.sound) this.audios.sound.stop();
+        }
 
         this.setOrigin = (origin) => {
           this.origin = origin;
@@ -119,6 +146,7 @@ game
 
         this.setInteractive = (interactive) => {
           this.sprite.interactive = interactive;
+          this.sprite.buttonMode = interactive;
         }
 
         this.setCallbackFinishDrag = (callbackFinishDrag) => {
@@ -151,8 +179,9 @@ game
             this.position.y,
           );
         }
-
-        game.scene.stage.addChild(this.sprite);
+        this.add = () => {
+          game.scene.stage.addChild(this.sprite);
+        }
       }
     })
   })

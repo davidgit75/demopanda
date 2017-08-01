@@ -46,6 +46,12 @@ game.config = {
           "src": "Images/full.png"
         }
       },
+      {
+        "name": "buttonHelp",
+        "image": {
+          "src": "Images/but_Q.png"
+        }
+      },
     ],
     "scenes": [
       {
@@ -61,7 +67,7 @@ game.config = {
             "times": [
               {
                 "name": "high",
-                "value": 1600
+                "value": 1700
               },
               {
                 "name": "low",
@@ -235,7 +241,167 @@ game.config = {
         },
         "borderColor": "3B5998",
         "backgroundColor": "FFFFFF"
-      }
+      },
+      {
+        "name": "questionHL",
+        "type": "target",
+        "label": {
+          "show": true,
+          "text": "?",
+          "position": "bottom",
+          "color": "3B5998"
+        },
+        position: {
+          x: 520,
+          y: 190
+        },
+        size: {
+          width: 110,
+          height: 110
+        },
+        "borderColor": "3B5998",
+        "backgroundColor": "FFFFFF"
+      },
+      {
+        "name": "questionHS",
+        "type": "target",
+        "label": {
+          "show": true,
+          "text": "?",
+          "position": "bottom",
+          "color": "3B5998"
+        },
+        position: {
+          x: 520,
+          y: 310
+        },
+        size: {
+          width: 110,
+          height: 110
+        },
+        "borderColor": "3B5998",
+        "backgroundColor": "FFFFFF"
+      },
+      {
+        "name": "questionLL",
+        "type": "target",
+        "label": {
+          "show": true,
+          "text": "?",
+          "position": "bottom",
+          "color": "3B5998"
+        },
+        position: {
+          x: 520,
+          y: 440
+        },
+        size: {
+          width: 110,
+          height: 110
+        },
+        "borderColor": "3B5998",
+        "backgroundColor": "FFFFFF"
+      },
+      {
+        "name": "questionLS",
+        "type": "target",
+        "label": {
+          "show": true,
+          "text": "?",
+          "position": "bottom",
+          "color": "3B5998"
+        },
+        position: {
+          x: 520,
+          y: 560
+        },
+        size: {
+          width: 110,
+          height: 110
+        },
+        "borderColor": "3B5998",
+        "backgroundColor": "FFFFFF"
+      },
+      {
+        "name": "signalHL",
+        "type": "target",
+        "label": {
+          "show": false,
+          "text": "?",
+          "position": "bottom",
+          "color": "3B5998"
+        },
+        position: {
+          x: 700,
+          y: 190
+        },
+        size: {
+          width: 110,
+          height: 110
+        },
+        "borderColor": "FFFFFF",
+        "backgroundColor": "FFFFFF"
+      },
+      {
+        "name": "signalHS",
+        "type": "target",
+        "label": {
+          "show": false,
+          "text": "?",
+          "position": "bottom",
+          "color": "3B5998"
+        },
+        position: {
+          x: 700,
+          y: 310
+        },
+        size: {
+          width: 110,
+          height: 110
+        },
+        "borderColor": "FFFFFF",
+        "backgroundColor": "FFFFFF"
+      },
+      {
+        "name": "signalLL",
+        "type": "target",
+        "label": {
+          "show": false,
+          "text": "?",
+          "position": "bottom",
+          "color": "3B5998"
+        },
+        position: {
+          x: 700,
+          y: 440
+        },
+        size: {
+          width: 110,
+          height: 110
+        },
+        "borderColor": "FFFFFF",
+        "backgroundColor": "FFFFFF"
+      },
+      {
+        "name": "signalLS",
+        "type": "target",
+        "label": {
+          "show": false,
+          "text": "?",
+          "position": "bottom",
+          "color": "3B5998"
+        },
+        position: {
+          x: 700,
+          y: 560
+        },
+        size: {
+          width: 110,
+          height: 110
+        },
+        "borderColor": "FFFFFF",
+        "backgroundColor": "FFFFFF"
+      },
     ],
     "images": [
       {
@@ -381,6 +547,46 @@ game.config = {
         },
         "src": "Images/low8.png",
         "audio": "Audios/low8.mp3"
+      },
+      {
+        "name": "waves1",
+        "type": {},
+        "audio": null,
+        "tmpAudios": [
+          "Audios/waves1.mp3",
+          "Audios/waves1w.mp3",
+        ],
+        "src": "Images/waves1.png"
+      },
+      {
+        "name": "waves2",
+        "type": {},
+        "audio": null,
+        "tmpAudios": [
+          "Audios/waves2.mp3",
+          "Audios/waves2w.mp3",
+        ],
+        "src": "Images/waves2.png"
+      },
+      {
+        "name": "waves3",
+        "type": {},
+        "audio": null,
+        "tmpAudios": [
+          "Audios/waves3.mp3",
+          "Audios/waves3w.mp3",
+        ],
+        "src": "Images/waves3.png"
+      },
+      {
+        "name": "waves4",
+        "type": {},
+        "audio": null,
+        "tmpAudios": [
+          "Audios/waves4.mp3",
+          "Audios/waves4w.mp3",
+        ],
+        "src": "Images/waves4.png"
       }
     ]
   }

@@ -10,6 +10,10 @@ game
         this.sprite.with = game.system.with
         this.sprite.height = game.system.height
 
+        this.setVisible = (visible) => {
+          this.sprite.visible = visible;
+        }
+
         game.scene.stage.addChild(this.sprite);
       }
     })
